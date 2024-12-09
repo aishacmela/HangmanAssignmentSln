@@ -9,7 +9,7 @@ public partial class HangmanGamePage : ContentPage
 	private int attempts = 8;
 	private int attemptsLeft { get; set; }
 	private List<char> guessedLetters;
-	private List<string> wordList = new List<string> { "certain", "doubt", "animal", "creations", "guesses" };
+	private List<string> wordList = new List<string> { "certain", "doubt", "animal", "creations",  };
 
 
 	public HangmanGamePage()
@@ -107,8 +107,25 @@ public partial class HangmanGamePage : ContentPage
 	//handle button click to process a guess 
 	private void OnGuessButtonClicked(object sender, EventArgs e)
 	{
-		//get guessed letter from an imput field
-		char guessedLetter = GuessInput.Text.Trim().ToLower()[0];
+		// Get the guessed letter from the input field
+		string input = GuessInput.Text?.Trim().ToLower();
+
+		// Validate input (first check for null/empty)
+		if (string.IsNullOrEmpty(input))
+		{
+			DisplayMessage("Please enter a letter.");
+			return; // Exit early if input is null or empty
+		}
+
+		// Validate that the input is exactly one character and is a letter
+		if (input.Length != 1 || !char.IsLetter(input[0]))
+		{
+			DisplayMessage("Please enter a valid single letter.");
+			return; // Exit early if input is invalid
+		}
+
+		// Convert the input to a character
+		char guessedLetter = input[0];
 
 		//clear onput field
 		GuessInput.Text = string.Empty;
