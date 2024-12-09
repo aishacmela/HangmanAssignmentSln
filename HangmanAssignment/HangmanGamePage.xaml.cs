@@ -9,7 +9,7 @@ public partial class HangmanGamePage : ContentPage
 	private int attempts = 8;
 	private int attemptsLeft { get; set; }
 	private List<char> guessedLetters;
-	private List<string> wordList = new List<string> { "Certain", "doubt" };
+	private List<string> wordList = new List<string> { "certain", "doubt", "animal", "creations", "guesses" };
 
 
 	public HangmanGamePage()
