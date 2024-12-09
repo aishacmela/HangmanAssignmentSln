@@ -5,9 +5,10 @@
              Title="MAUI Hangman Assignment">
     <VerticalStackLayout>
         <Label Text="Welcome to Hangman" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="40"/>
-        <Image Margin="40" Source="hang1.png" HorizontalOptions="Center"/>
-        <Label FontAttributes="Bold" FontSize="30" HorizontalOptions="Center" Margin="40" Text="C_RR_EN__G_UE_S"/>
-        <Entry FontSize="30" HorizontalOptions="Center" Margin="40" Placeholder="Enter your next guess"/>
-        <Button Text="Guess"/>
+        <Image x:Name="HangmanImage" Margin="40" HorizontalOptions="Center"/>
+        <Label x:Name="DisplayAttemptsLabel" FontAttributes="Bold" HorizontalOptions="Center" FontSize="18"/>
+        <Label x:Name="DisplayWordLabel" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center" Margin="40"/>
+        <Entry x:Name="GuessInput"  FontSize="30" HorizontalOptions="Center" Margin="40" Placeholder="Enter a letter"/>
+        <Button Text="Guess" Clicked="OnGuessButtonClicked" />
     </VerticalStackLayout>
 </ContentPage>
